@@ -110,8 +110,10 @@ class CommentController extends BaseController
         if (is_null($Post)) {
             return $this->sendError('Post does not exist');
         }
-        $authUser = Auth::user();
-        $input['user_id'] = $authUser->id;
+        if (is_null($input['user_id'])) {
+            $authUser = Auth::user();
+            $input['user_id'] = $authUser->id;
+        }
 
         $comment = Comment::create($input);
         return $this->sendResponse(new CommentResource($comment), 'Comment created');
