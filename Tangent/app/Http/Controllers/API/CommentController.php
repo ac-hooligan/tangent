@@ -24,7 +24,8 @@ class CommentController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="array", @OA\Items(
+     *              @OA\Property(property="data", type="array",
+     *                  @OA\Items(
      *                      @OA\Property(property="id", type="number"),
      *                      @OA\Property(property="title", type="string"),
      *                      @OA\Property(property="description", type="string"),
@@ -66,13 +67,14 @@ class CommentController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="object", @OA\Property(property="id", type="number", example=1),
-     *                      @OA\Property(property="title", type="string", example="test"),
-     *                      @OA\Property(property="description", type="string", example="this is a test"),
-     *                      @OA\Property(property="rating", type="number", example=3),
-     *                      @OA\Property(property="post_id", type="number", example=3),
-     *                      @OA\Property(property="created_at", type="string", example="04/12/2023"),
-     *                      @OA\Property(property="updated_at", type="string", example="04/12/2023")
+     *              @OA\Property(property="data", type="object",
+     *                  @OA\Property(property="id", type="number", example=1),
+     *                  @OA\Property(property="title", type="string", example="test"),
+     *                  @OA\Property(property="description", type="string", example="this is a test"),
+     *                  @OA\Property(property="rating", type="number", example=3),
+     *                  @OA\Property(property="post_id", type="number", example=3),
+     *                  @OA\Property(property="created_at", type="string", example="04/12/2023"),
+     *                  @OA\Property(property="updated_at", type="string", example="04/12/2023")
      *              ),
      *              @OA\Property(property="message", type="string", example="Comment created"),
      *          )
@@ -82,7 +84,8 @@ class CommentController extends BaseController
      *          description="Fail",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=false),
-     *              @OA\Property(property="message", type="object", @OA\Property(property="title", type="array",
+     *              @OA\Property(property="message", type="object",
+     *                  @OA\Property(property="title", type="array",
      *                      @OA\Items(type="string", example="The name has already been taken."),
      *                  )
      *               )
@@ -126,13 +129,14 @@ class CommentController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="object", @OA\Property(property="id", type="number", example=1),
-     *                      @OA\Property(property="title", type="string", example="Test"),
-     *                      @OA\Property(property="description", type="string", example="Lorem Ipsum is simply"),
-     *                      @OA\Property(property="rating", type="number", example=4),
-     *                      @OA\Property(property="post_id", type="number", example=1),
-     *                      @OA\Property(property="created_at", type="string", example="04/12/2023"),
-     *                      @OA\Property(property="updated_at", type="string", example="04/12/2023")
+     *              @OA\Property(property="data", type="object",
+     *                  @OA\Property(property="id", type="number", example=1),
+     *                  @OA\Property(property="title", type="string", example="Test"),
+     *                  @OA\Property(property="description", type="string", example="Lorem Ipsum is simply"),
+     *                  @OA\Property(property="rating", type="number", example=4),
+     *                  @OA\Property(property="post_id", type="number", example=1),
+     *                  @OA\Property(property="created_at", type="string", example="04/12/2023"),
+     *                  @OA\Property(property="updated_at", type="string", example="04/12/2023")
      *              ),
      *              @OA\Property(property="message", type="string", example="Comment fetched"),
      *          )
@@ -177,13 +181,14 @@ class CommentController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="object", @OA\Property(property="id", type="number", example=1),
-     *                      @OA\Property(property="title", type="string", example="Test"),
-     *                      @OA\Property(property="description", type="string", example="Lorem Ipsum is simply"),
-     *                      @OA\Property(property="rating", type="number", example=3),
-     *                      @OA\Property(property="post_id", type="number", example=3),
-     *                      @OA\Property(property="created_at", type="string"),
-     *                      @OA\Property(property="updated_at", type="string")
+     *              @OA\Property(property="data", type="object",
+     *                  @OA\Property(property="id", type="number", example=1),
+     *                  @OA\Property(property="title", type="string", example="Test"),
+     *                  @OA\Property(property="description", type="string", example="Lorem Ipsum is simply"),
+     *                  @OA\Property(property="rating", type="number", example=3),
+     *                  @OA\Property(property="post_id", type="number", example=3),
+     *                  @OA\Property(property="created_at", type="string"),
+     *                  @OA\Property(property="updated_at", type="string")
      *              ),
      *              @OA\Property(property="message", type="string", example="Category updated"),
      *          )
@@ -193,7 +198,8 @@ class CommentController extends BaseController
      *          description="Fail",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=false),
-     *              @OA\Property(property="message", type="object", @OA\Property(property="name", type="array",
+     *              @OA\Property(property="message", type="object",
+     *                  @OA\Property(property="name", type="array",
      *                      @OA\Items(type="string", example="The name has already been taken."),
      *                  )
      *               )

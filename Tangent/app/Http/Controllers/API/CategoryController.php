@@ -22,7 +22,8 @@ class CategoryController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="array", @OA\Items(
+     *              @OA\Property(property="data", type="array",
+     *                  @OA\Items(
      *                      @OA\Property(property="id", type="number"),
      *                      @OA\Property(property="name", type="string"),
      *                      @OA\Property(property="created_at", type="string"),
@@ -61,10 +62,11 @@ class CategoryController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="object", @OA\Property(property="id", type="number", example=1),
-     *                      @OA\Property(property="name", type="string", example="test"),
-     *                      @OA\Property(property="created_at", type="string", example="04/12/2023"),
-     *                      @OA\Property(property="updated_at", type="string", example="04/12/2023")
+     *              @OA\Property(property="data", type="object",
+     *                  @OA\Property(property="id", type="number", example=1),
+     *                  @OA\Property(property="name", type="string", example="test"),
+     *                  @OA\Property(property="created_at", type="string", example="04/12/2023"),
+     *                  @OA\Property(property="updated_at", type="string", example="04/12/2023")
      *              ),
      *              @OA\Property(property="message", type="string", example="Category created"),
      *          )
@@ -74,7 +76,8 @@ class CategoryController extends BaseController
      *          description="Fail",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=false),
-     *              @OA\Property(property="message", type="object", @OA\Property(property="name", type="array",
+     *              @OA\Property(property="message", type="object",
+     *                  @OA\Property(property="name", type="array",
      *                      @OA\Items(type="string", example="The name has already been taken."),
      *                  )
      *               )
@@ -108,11 +111,12 @@ class CategoryController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="object", @OA\Property(property="id", type="number", example=1),
-     *                      @OA\Property(property="name", type="string", example="Food"),
-     *                      @OA\Property(property="content", type="string", example="Lorem Ipsum is simply"),
-     *                      @OA\Property(property="created_at", type="string", example="04/12/2023"),
-     *                      @OA\Property(property="updated_at", type="string", example="04/12/2023")
+     *              @OA\Property(property="data", type="object",
+     *                  @OA\Property(property="id", type="number", example=1),
+     *                  @OA\Property(property="name", type="string", example="Food"),
+     *                  @OA\Property(property="content", type="string", example="Lorem Ipsum is simply"),
+     *                  @OA\Property(property="created_at", type="string", example="04/12/2023"),
+     *                  @OA\Property(property="updated_at", type="string", example="04/12/2023")
      *              ),
      *              @OA\Property(property="message", type="string", example="Category fetched"),
      *          )
@@ -122,10 +126,7 @@ class CategoryController extends BaseController
      *          description="Fail",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=false),
-     *              @OA\Property(property="message", type="object", @OA\Property(property="name", type="array",
-     *                      @OA\Items(type="string", example="The name has already been taken."),
-     *                  )
-     *               )
+     *              @OA\Property(property="message", type="string", example="Category does not exist")
      *          )
      *      ),
      *  )
@@ -145,7 +146,7 @@ class CategoryController extends BaseController
      *      operationId="putCategory",
      *      tags={"Categories"},
      *      security={{"bearerAuth":{}}},
-     *      summary="Get all categories",
+     *      summary="Update category",
      *      @OA\RequestBody(
      *          required=true,
      *          description="Pass category details",
@@ -160,11 +161,12 @@ class CategoryController extends BaseController
      *          description="Success",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=true),
-     *              @OA\Property(property="data", type="object", @OA\Property(property="id", type="number", example=1),
-     *                      @OA\Property(property="name", type="string", example="Food"),
-     *                      @OA\Property(property="content", type="string", example="This is a food category"),
-     *                      @OA\Property(property="created_at", type="string"),
-     *                      @OA\Property(property="updated_at", type="string")
+     *              @OA\Property(property="data", type="object",
+     *                  @OA\Property(property="id", type="number", example=1),
+     *                  @OA\Property(property="name", type="string", example="Food"),
+     *                  @OA\Property(property="content", type="string", example="This is a food category"),
+     *                  @OA\Property(property="created_at", type="string"),
+     *                  @OA\Property(property="updated_at", type="string")
      *              ),
      *              @OA\Property(property="message", type="string", example="Category updated"),
      *          )
@@ -174,7 +176,8 @@ class CategoryController extends BaseController
      *          description="Fail",
      *          @OA\JsonContent(
      *              @OA\Property(property="success", type="boolean", example=false),
-     *              @OA\Property(property="message", type="object", @OA\Property(property="name", type="array",
+     *              @OA\Property(property="message", type="object",
+     *                  @OA\Property(property="name", type="array",
      *                      @OA\Items(type="string", example="The name has already been taken."),
      *                  )
      *               )
@@ -204,7 +207,7 @@ class CategoryController extends BaseController
      *      operationId="deleteCategory",
      *      tags={"Categories"},
      *      security={{"bearerAuth":{}}},
-     *      summary="Get all categories",
+     *      summary="Delete category",
      *      @OA\Response(
      *          response=200,
      *          description="Success",
