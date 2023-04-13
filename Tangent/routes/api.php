@@ -14,11 +14,11 @@ use App\Http\Controllers\API\CommentController;
 |--------------------------------------------------------------------------
 */
 
-Route::post('login', [AuthController::class, 'signin']);
-Route::post('register', [AuthController::class, 'signup']);
+Route::post('login', [AuthController::class, 'signin'])->middleware('log.route');
+Route::post('register', [AuthController::class, 'signup'])->middleware('log.route');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::resource('posts', PostController::class);
-    Route::resource('categories', CategoryController::class);
-    Route::resource('comments', CommentController::class);
+    Route::resource('posts', PostController::class)->middleware('log.route');
+    Route::resource('categories', CategoryController::class)->middleware('log.route');
+    Route::resource('comments', CommentController::class)->middleware('log.route');
 });
