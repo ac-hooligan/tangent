@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('user_id');
-            $table->integer('category_id');
+            $table->integer('post_id');
             $table->text('description');
             $table->timestamps();
         });

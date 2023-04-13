@@ -209,7 +209,7 @@
                     "Categories"
                 ],
                 "summary": "Get all categories",
-                "operationId": "getPosts",
+                "operationId": "getCategories",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -243,7 +243,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "User created successfully"
+                                            "example": "Categories fetched"
                                         }
                                     },
                                     "type": "object"
@@ -263,7 +263,7 @@
                     "Categories"
                 ],
                 "summary": "Create new category",
-                "operationId": "postPosts",
+                "operationId": "postCategory",
                 "requestBody": {
                     "description": "Pass category details",
                     "required": true,
@@ -301,32 +301,29 @@
                                             "example": true
                                         },
                                         "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "properties": {
-                                                    "id": {
-                                                        "type": "number",
-                                                        "example": 1
-                                                    },
-                                                    "name": {
-                                                        "type": "string",
-                                                        "example": "test"
-                                                    },
-                                                    "created_at": {
-                                                        "type": "string",
-                                                        "example": "04/12/2023"
-                                                    },
-                                                    "updated_at": {
-                                                        "type": "string",
-                                                        "example": "04/12/2023"
-                                                    }
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
                                                 },
-                                                "type": "object"
-                                            }
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "test"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                }
+                                            },
+                                            "type": "object"
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "User created successfully"
+                                            "example": "Category created"
                                         }
                                     },
                                     "type": "object"
@@ -376,7 +373,7 @@
                     "Categories"
                 ],
                 "summary": "Retrieve category",
-                "operationId": "getPost",
+                "operationId": "getSingleCategory",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -389,32 +386,33 @@
                                             "example": true
                                         },
                                         "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "properties": {
-                                                    "id": {
-                                                        "type": "number",
-                                                        "example": 1
-                                                    },
-                                                    "name": {
-                                                        "type": "string",
-                                                        "example": "test"
-                                                    },
-                                                    "created_at": {
-                                                        "type": "string",
-                                                        "example": "04/12/2023"
-                                                    },
-                                                    "updated_at": {
-                                                        "type": "string",
-                                                        "example": "04/12/2023"
-                                                    }
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
                                                 },
-                                                "type": "object"
-                                            }
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Food"
+                                                },
+                                                "content": {
+                                                    "type": "string",
+                                                    "example": "Lorem Ipsum is simply"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                }
+                                            },
+                                            "type": "object"
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "User created successfully"
+                                            "example": "Category fetched"
                                         }
                                     },
                                     "type": "object"
@@ -443,6 +441,426 @@
                                                 }
                                             },
                                             "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get all categories",
+                "operationId": "putCategory",
+                "requestBody": {
+                    "description": "Pass category details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "content"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Food"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "example": "This is a food category"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Food"
+                                                    },
+                                                    "content": {
+                                                        "type": "string",
+                                                        "example": "This is a food category"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Category successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Fail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The name has already been taken."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get all categories",
+                "operationId": "deleteCategory",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Category deleted"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Fail"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/comments": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Get all comments",
+                "operationId": "getComment",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number"
+                                                    },
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    },
+                                                    "rating": {
+                                                        "type": "string"
+                                                    },
+                                                    "post_id": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Comments fetched"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Create new category",
+                "operationId": "postComment",
+                "requestBody": {
+                    "description": "Pass category details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "content"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "Food"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "example": "This is a food category"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
+                                                },
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "test"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "this is a test"
+                                                },
+                                                "rating": {
+                                                    "type": "number",
+                                                    "example": 3
+                                                },
+                                                "post_id": {
+                                                    "type": "number",
+                                                    "example": 3
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Comment created"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Fail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "properties": {
+                                                "title": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The name has already been taken."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/comments/{id}": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Retrieve comment",
+                "operationId": "getSingleComment",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Food"
+                                                },
+                                                "content": {
+                                                    "type": "string",
+                                                    "example": "Lorem Ipsum is simply"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "04/12/2023"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Comment fetched"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Fail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Comment does not exist"
                                         }
                                     },
                                     "type": "object"
